@@ -7,7 +7,7 @@ pipeline {
   }
 
   stages {
-    stage('check images') {
+    stage('Checks images') {
       steps {
         sh 'docker ps'
       }
@@ -22,21 +22,21 @@ pipeline {
         }
     }
 
-    stage('installs dependencies and compiles application') {
+    stage('Installs dependencies and compiles application') {
       agent { dockerfile true }
       steps {
         echo 'success'
       }
     }
 
-    stage('stops and removes running container') {
+    stage('Stops and removes running container') {
         agent any
         steps {
             sh 'docker stop backend-Devops-ci-cd || true && docker rm backend-Devops-ci-cd || true'
             }
         }    
 
-    stage('build docker image') {
+    stage('Builds docker image') {
       agent any
       steps {
           script {
@@ -45,7 +45,7 @@ pipeline {
         }
     }
 
-     stage('push to docker hub') {
+     stage('Pushes image to docker hub') {
         agent any
         steps{    
             script {
@@ -57,7 +57,7 @@ pipeline {
      }
 
 
-      stage('Deploy') {
+      stage('Deploys application') {
             agent any
             steps{
                 script {
