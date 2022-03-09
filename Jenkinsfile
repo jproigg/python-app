@@ -29,6 +29,14 @@ pipeline {
       }
     }
 
+    stage('Stop running container') {
+        agent any
+        steps {
+            sh 'docker stop backend-Devops-ci-cd'
+            sh 'docker rm backend-Devops-ci-cd'
+            }
+        }    
+
     stage('build docker image') {
       agent any
       steps {
@@ -48,14 +56,6 @@ pipeline {
             }
         }
      }
-
-      stage('Stop running container') {
-          agent any
-          steps {
-              sh 'docker ps -f backend-Devops-ci-cd -q | xargs --no-run-if empty docker container stop'
-              sh 'docker container ls -a -f backend-Devops-ci-cd -q | xargs -r docker container rm'
-            }
-        }
 
 
       stage('Deploy') {
