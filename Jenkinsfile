@@ -18,7 +18,7 @@ pipeline {
             docker { image 'cytopia/pylint'}
             }
         steps {
-            sh "pylint app.py"
+            sh "pylint --exit-zero app.py"
             echo "test results"
         }
     }
