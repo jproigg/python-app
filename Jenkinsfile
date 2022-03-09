@@ -13,12 +13,12 @@ pipeline {
       }
     }
 
-    /*stage('compile application and install dependencies') {
+    stage('compile application and install dependencies') {
       agent { dockerfile true }
       steps {
         echo 'success'
       }
-    }*/
+    }
 
     stage('build docker image') {
       agent any
