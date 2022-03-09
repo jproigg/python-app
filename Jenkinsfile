@@ -13,13 +13,14 @@ pipeline {
       }
     }
 
-    stage {'Lint test'}
+    stage ('Lint test') {
         agent {
             docker { image 'cytopia:pylint'}
+            }
         steps {
             sh "pylint app.py"
         }
-        }
+    }
 
     /*stage('compile application and install dependencies') {
       agent { dockerfile true }
