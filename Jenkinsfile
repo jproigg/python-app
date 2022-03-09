@@ -18,7 +18,7 @@ pipeline {
             docker { image 'cytopia/pylint'}
             }
         steps {
-            sh "pylint app.py |echo 0"
+            sh "pylint --exit-zero --output-format=parseable --reports=n app.py > reports/pylint.log"
             echo "test results"
         }
     }
