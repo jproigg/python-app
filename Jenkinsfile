@@ -18,7 +18,7 @@ pipeline {
             docker { image 'eeacms/pylint'}
             }
         steps {
-            sh "pylint --exit-zero --output-format=parseable --reports=n app.py > reports/pylint.log"
+            sh "pylint --exit-zero"
         }
     }
 
