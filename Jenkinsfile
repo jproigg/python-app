@@ -15,7 +15,7 @@ pipeline {
 
     stage ('Lint test') {
         agent {
-            docker { image 'cytopia:pylint'}
+            docker { image 'cytopia/pylint'}
             }
         steps {
             sh "pylint app.py"
