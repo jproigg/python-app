@@ -19,6 +19,7 @@ pipeline {
             }
         steps {
             sh "pylint app.py"
+            echo "test results"
         }
     }
 
