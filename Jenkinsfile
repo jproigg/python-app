@@ -22,14 +22,14 @@ pipeline {
         }
     }
 
-    stage('compile application and install dependencies') {
+    stage('install dependencies and compile application') {
       agent { dockerfile true }
       steps {
         echo 'success'
       }
     }
 
-    stage('Stop running containers') {
+    stage('stop and remove running containers') {
         agent any
         steps {
             sh 'docker stop backend-Devops-ci-cd || true && docker rm backend-Devops-ci-cd || true'
