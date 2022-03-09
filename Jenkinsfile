@@ -29,7 +29,7 @@ pipeline {
       }
     }
 
-    stage('stop and remove running containers') {
+    stage('stops and removes running container') {
         agent any
         steps {
             sh 'docker stop backend-Devops-ci-cd || true && docker rm backend-Devops-ci-cd || true'
