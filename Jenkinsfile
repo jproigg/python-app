@@ -13,7 +13,15 @@ pipeline {
       }
     }
 
-    stage('compile application and install dependencies') {
+    stage {'Lint test'}
+        agent {
+            docker { image 'cytopia:pylint'}
+        steps {
+            sh "pylint app.py"
+        }
+        }
+
+    /*stage('compile application and install dependencies') {
       agent { dockerfile true }
       steps {
         echo 'success'
@@ -56,7 +64,7 @@ pipeline {
                     dockerImage.run("-p 8096:5000 --rm --name backend-Devops-ci-cd")
                 }
             }
-        }
+        }*/
      
   }
 }
