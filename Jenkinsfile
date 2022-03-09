@@ -18,7 +18,7 @@ pipeline {
             docker { image 'eeacms/pylint'}
             }
         steps {
-            sh "pylint --exit-zero"
+            sh "pylint app.py --exit-zero"
         }
     }
 
