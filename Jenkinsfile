@@ -15,11 +15,10 @@ pipeline {
 
     stage ('Lint test') {
         agent {
-            docker { image 'cytopia/pylint'}
+            docker { image 'eeacms/pylint'}
             }
         steps {
             sh "pylint --exit-zero --output-format=parseable --reports=n app.py > reports/pylint.log"
-            echo "test results"
         }
     }
 
