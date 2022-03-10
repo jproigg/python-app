@@ -26,7 +26,7 @@ pipeline {
     stage("unit test") {
       agent any
       steps {
-        sh 'pytest test.py'
+        sh 'pytest app.py'
       }
     }
 
