@@ -34,7 +34,7 @@ pipeline {
       agent any
       steps {
         withSonarQubeEnv(installationName: 'jenkins-sonar') { 
-          sh 'python app.py sonar:sonar'
+          sh 'python3 app.py sonar:sonar'
         }
       }
     }
