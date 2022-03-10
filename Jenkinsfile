@@ -26,11 +26,7 @@ pipeline {
     stage("unit test") {
       agent any
       steps {
-        withPythonEnv('python3') {
-          sh 'apt-get install python3-venv'
-          sh 'pip install pytest'
-          sh 'pytest test.py'
-        }
+        sh 'pytest test.py'
       }
     }
 
