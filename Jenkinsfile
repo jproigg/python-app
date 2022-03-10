@@ -31,6 +31,7 @@ pipeline {
     }
 
     stage('Scan') {
+      agent any
       steps {
         withSonarQubeEnv(installationName: 'jenkins-sonar') { 
           sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
@@ -39,6 +40,7 @@ pipeline {
     }
 
     stage("Quality Gate") {
+      agent any
       steps {
         timeout(time: 1, unit: 'MINUTES') {
           waitForQualityGate abortPipeline: true
