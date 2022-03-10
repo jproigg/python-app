@@ -7,7 +7,7 @@ pipeline {
   }
 
   stages {
-    stage('Checks images') {
+    stage('Check images') {
       steps {
         sh 'docker ps'
       }
@@ -29,14 +29,14 @@ pipeline {
       }
     }
 
-    stage('Stops and removes running container') {
+    stage('Stop and remove running container') {
         agent any
         steps {
             sh 'docker stop backend-Devops-ci-cd || true && docker rm backend-Devops-ci-cd || true'
             }
         }    
 
-    stage('Builds docker image') {
+    stage('Build docker image') {
       agent any
       steps {
           script {
@@ -45,7 +45,7 @@ pipeline {
         }
     }
 
-     stage('Pushes image to docker hub') {
+     stage('Push image to docker hub') {
         agent any
         steps{    
             script {
