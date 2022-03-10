@@ -34,7 +34,7 @@ pipeline {
       agent any
       steps {
         withSonarQubeEnv(installationName: 'jenkins-sonar') { 
-          sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+          sh 'python app.py sonar:sonar'
         }
       }
     }
@@ -47,7 +47,7 @@ pipeline {
         }
       }
     }
-    
+
     stage('Install dependencies and compile application') {
       agent { dockerfile true }
       steps {
