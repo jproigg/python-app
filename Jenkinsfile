@@ -8,6 +8,7 @@ pipeline {
 
   stages {
     stage('Check images') {
+      agent any
       steps {
         sh 'docker ps'
       }
