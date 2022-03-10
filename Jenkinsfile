@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
   environment {
       registry = "jproigg/backend-devops-ci-cd"
       registryCredential = 'dockerhub'
@@ -24,9 +24,11 @@ pipeline {
 
     stage("unit test") {
       agent any
-      withPythonEnv('python3') {
-        sh 'pip install pytest'
-        sh 'pytest test.py'
+      steps {
+        withPythonEnv('python3') {
+          sh 'pip install pytest'
+          sh 'pytest test.py'
+        }
       }
     }
 
