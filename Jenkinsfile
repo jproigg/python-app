@@ -22,7 +22,7 @@ pipeline {
         }
     }
 
-    stage('Installs dependencies and compiles application') {
+    stage('Install dependencies and compile application') {
       agent { dockerfile true }
       steps {
         echo 'success'
