@@ -3,7 +3,7 @@
 Proceso de CI/CD utilizando jenkins en un contenedor de docker para una aplicacion de python utilizando el framework Flask, el resultado esperado es crear una pequeña pagina web que depliegue "Proyecto CI/CD" en pantalla.
 
 
-##Pasos del pipeline
+## Pasos del pipeline
 
 **Verificar si docker esta instalado en el contenedor**
 
@@ -38,15 +38,15 @@ Con la imagen de docker construida en el paso anterior, el CloudBees Docker Buil
 En este paso se despliega la aplicacion al http://localhost:8096/ mapeado a la ip publica de ngrok http://d900-181-194-203-26.ngrok.io para que la aplicacion este disponible al publico
 
 
-##Jenkins plugins utilizados aparte de la instalacion basica
+## Jenkins plugins utilizados aparte de la instalacion basica
 - Docker pipeline
 - CloudBees Docker Build and Publish plugin
 
-##Jenkins credentials necesarios para la integracion
+## Jenkins credentials necesarios para la integracion
 - jenkins-github: credential necesario para la comunicacion entre jenkins y github
 - dockerhub: credential necesario para pushear la imagen de la aplicacion a dockerhub para deployment
 
-##Information de puertos
+## Information de puertos
 - Instancia de jenkins: http://a0ea-181-194-203-26.ngrok.io -> http://localhost:8080
 - Aplicacion desplegada: http://d900-181-194-203-26.ngrok.io -> http://localhost:8096
 
