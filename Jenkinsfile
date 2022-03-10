@@ -22,6 +22,14 @@ pipeline {
         }
     }
 
+    stage("unit test") {
+      agent any
+      withPythonEnv('python3') {
+        sh 'pip install pytest'
+        sh 'pytest test.py'
+      }
+    }
+
     stage('Install dependencies and compile application') {
       agent { dockerfile true }
       steps {
@@ -57,7 +65,7 @@ pipeline {
      }
 
 
-      stage('Deploys application') {
+      stage('Deploy application') {
             agent any
             steps{
                 script {
