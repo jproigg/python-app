@@ -30,24 +30,6 @@ pipeline {
       }
     }
 
-    stage('Scan') {
-      agent any
-      steps {
-        withSonarQubeEnv(installationName: 'jenkins-sonar') { 
-          sh 'python3 app.py sonar:sonar'
-        }
-      }
-    }
-
-    stage("Quality Gate") {
-      agent any
-      steps {
-        timeout(time: 1, unit: 'MINUTES') {
-          waitForQualityGate abortPipeline: true
-        }
-      }
-    }
-
     stage('Install dependencies and compile application') {
       agent { dockerfile true }
       steps {
