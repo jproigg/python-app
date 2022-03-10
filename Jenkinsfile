@@ -46,7 +46,8 @@ pipeline {
           waitForQualityGate abortPipeline: true
         }
       }
-
+    }
+    
     stage('Install dependencies and compile application') {
       agent { dockerfile true }
       steps {
