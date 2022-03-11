@@ -5,7 +5,7 @@ Proceso de CI/CD utilizando jenkins en un contenedor de docker para una aplicaci
 
 ## Pasos del pipeline
 
-**Verificar si docker esta instalado en el contenedor**
+*Verificar si docker esta instalado en el contenedor*
 
 Se utiliza el comando "docker ps" para verificar que docker este instalado dentro del contenedor y que despliegue en pantalla los contenedores activos
 
